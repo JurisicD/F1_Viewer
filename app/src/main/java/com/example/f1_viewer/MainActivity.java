@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //IDE gas git test"!
+
     @Override
     protected void onStart() {
         super.onStart();
