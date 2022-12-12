@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //IDE gas git test"!
+    //IDE gas git test" 2 !
 
     @Override
     protected void onStart() {
