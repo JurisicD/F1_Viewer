@@ -1,14 +1,5 @@
 package com.example.f1_viewer.API;
 
-import com.example.f1_viewer.Classes.F1_Drivers;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 public class NetClientGetF1Data {
    /* public List<F1_Drivers> getListOfDriversByYear(Integer nYear){
         List<F1_Drivers> driverList = new ArrayList<>();

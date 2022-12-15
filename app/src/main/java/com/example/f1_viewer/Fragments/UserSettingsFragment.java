@@ -32,7 +32,15 @@ public class UserSettingsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        //CODE GOES HERE!
-
+        //User settings
+        logout= (Button) view.findViewById(R.id.btnLogout);
+        logout.setOnClickListener(view1 -> {
+            mAuth = FirebaseAuth.getInstance();
+            mAuth.signOut();
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
+        });
     }
+
+
 }

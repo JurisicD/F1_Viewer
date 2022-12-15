@@ -56,13 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        /* Logout function
-        btnLogOut = findViewById(R.id.btnLogout);
 
-        btnLogOut.setOnClickListener(view -> {
-            mAuth.signOut();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        });*/
 
     }
 
