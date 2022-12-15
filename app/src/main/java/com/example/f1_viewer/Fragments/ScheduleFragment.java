@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 
 import com.example.f1_viewer.R;
 
-public class ConstructorsStandingsFragment extends Fragment {
 
+public class ScheduleFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_constructors_standings, container, false);
+        return inflater.inflate(R.layout.fragment_schedule, container, false);
     }
 
     @Override
@@ -28,9 +28,5 @@ public class ConstructorsStandingsFragment extends Fragment {
         //CODE GOES HERE!
 
     }
-
-
-
-
 
 }
