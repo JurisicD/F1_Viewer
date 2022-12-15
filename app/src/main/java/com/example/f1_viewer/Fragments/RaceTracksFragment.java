@@ -26,7 +26,7 @@ public class RaceTracksFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        //CODE GOES HERE!
+        //Lista staza i tak to !
 
     }
 }

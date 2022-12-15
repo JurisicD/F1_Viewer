@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,44 +8,25 @@
     android:paddingBottom="0dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnDriversStanding"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Drivers" />
-
-        <Button
-            android:id="@+id/btnConstructorsStandings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Teams" />
-
-        <Button
-            android:id="@+id/btnRaceTracks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tracks" />
-
-        <Button
-            android:id="@+id/btnUserSettings"
-            android:layout_width="131dp"
-            android:layout_height="wrap_content"
-            android:text="Settings" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/fragCont"
+    <FrameLayout
+        android:id="@+id/fragContent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

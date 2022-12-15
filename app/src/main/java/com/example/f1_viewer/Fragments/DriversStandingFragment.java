@@ -22,9 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DriversStandingFragment extends Fragment {
 
-    Button test;
-    FirebaseAuth mAuth;
-    TextView twTest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,8 +33,7 @@ public class DriversStandingFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        twTest = view.findViewById(R.id.textView1);
-        twTest.setText("JAVVA");
+
 
     }
 }
