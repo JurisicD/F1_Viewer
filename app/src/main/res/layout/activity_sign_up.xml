@@ -77,13 +77,13 @@
 
         <TextView
             android:id="@+id/textViewLogin1"
-            android:layout_width="127dp"
-            android:layout_height="17dp"
+            android:layout_width="177dp"
+            android:layout_height="22dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Još nisi registriran"
+            android:text="Imaš postojeći račun?"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textView_redirect_login"
             app:layout_constraintStart_toStartOf="parent"

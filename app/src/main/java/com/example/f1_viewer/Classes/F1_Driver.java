@@ -12,6 +12,10 @@ public class F1_Driver {
     private Date dateOfBirth;
     private String nationality;
 
+    public F1_Driver() {
+
+    }
+
     public String getDriverId() {
         return driverId;
     }
@@ -69,13 +73,5 @@ public class F1_Driver {
     }
 
 
-    public F1_Driver(String driverId, Integer carNumber, String code, String name, String surname, Date dateOfBirth, String nationality) {
-        this.driverId = driverId;
-        this.carNumber = carNumber;
-        this.code = code;
-        this.name = name;
-        this.surname = surname;
-        this.dateOfBirth = dateOfBirth;
-        this.nationality = nationality;
-    }
+
 }
