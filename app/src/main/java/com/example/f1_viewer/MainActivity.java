@@ -1,6 +1,7 @@
 package com.example.f1_viewer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -27,7 +28,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+       // setContentView(R.layout.activity_main);
+
+        ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+
+
+
+
         replaceFragment(new ChampionshipFragment()); //default fragment/main page
 
         mAuth = FirebaseAuth.getInstance();
@@ -54,10 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
-
-
-
-
     }
 
     @Override

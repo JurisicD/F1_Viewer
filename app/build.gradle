@@ -1,11 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+
 }
 
 android {
     namespace 'com.example.f1_viewer'
     compileSdk 32
+
+    dataBinding{
+        enabled = true;
+    }
 
     defaultConfig {
         applicationId "com.example.f1_viewer"
@@ -33,6 +38,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {

@@ -18,22 +18,16 @@ import java.util.List;
 public class ChampionshipFragment extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View contentView = inflater.inflate(R.layout.fragment_championship, container, false);
+        View contentView = inflater.inflate(R.layout.fragment_championship,
+                                                container, false);
         ListView listView = contentView.findViewById(R.id.listView);
 
-
-
         return contentView;
-
-
-
-
-
-
     }
 
 
