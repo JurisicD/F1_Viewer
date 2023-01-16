@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.f1_viewer.R;
-import com.example.f1_viewer.firebase_administration.LoginActivity;
+import com.example.f1_viewer.Firebase.firebase_administration.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 

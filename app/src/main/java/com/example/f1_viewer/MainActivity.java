@@ -15,7 +15,7 @@ import com.example.f1_viewer.Fragments.RaceTracksFragment;
 import com.example.f1_viewer.Fragments.ScheduleFragment;
 import com.example.f1_viewer.Fragments.UserSettingsFragment;
 import com.example.f1_viewer.databinding.ActivityMainBinding;
-import com.example.f1_viewer.firebase_administration.LoginActivity;
+import com.example.f1_viewer.Firebase.firebase_administration.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

@@ -13,21 +13,14 @@
         android:theme="@style/Theme.F1_Viewer"
         tools:targetApi="31">
         <activity
-            android:name=".userlist"
+            android:name=".Firebase.firebase_administration.SignUpActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".firebase_administration.SignUpActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".firebase_administration.LoginActivity"
+            android:name=".Firebase.firebase_administration.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/txt_driver_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Code: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_driver_constructorId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Team: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_driver_dateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Birth day: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_driver_driverId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Driver ID: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_driver_familyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Surname: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_driver_givenName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_driver_nationality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nationality: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_driver_permanentNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Car number "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_driver_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="URL: "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

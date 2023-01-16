@@ -7,25 +7,33 @@
     tools:context=".Fragments.ChampionshipFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/btn_ShowDriversView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Drivers View"/>
+
+        <Button
+            android:id="@+id/btn_ShowConstructorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Constructor View"
+            android:layout_below="@id/btn_ShowDriversView"/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Driver standings / Team standings" />
+            android:layout_below="@id/btn_ShowConstructorView"/>
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="390dp"
-            android:layout_height="606dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="10dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
 
 </FrameLayout>
