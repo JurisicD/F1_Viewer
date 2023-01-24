@@ -55,4 +55,16 @@ public class Race {
     }
 
 
+    public Race(List<Races> racesList) {
+        this.racesList = racesList;
+    }
+
+
+    public List<Races> getRacesList() {
+        return racesList;
+    }
+
+    public void setRacesList(List<Races> racesList) {
+        this.racesList = racesList;
+    }
 }
