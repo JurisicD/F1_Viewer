@@ -1,5 +1,8 @@
 package com.example.f1_viewer.Firebase.GetData;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
 import com.example.f1_viewer.Classes.Constructor;
@@ -18,7 +21,7 @@ import java.util.List;
 public class FirebaseDatabaseHelper {
 
     private FirebaseDatabase mDatabase;
-    private DatabaseReference mReferenceDrivers;
+    public DatabaseReference mReferenceDrivers;
     private DatabaseReference mReferenceConstructors;
     private DatabaseReference mReferencesRaces;
     private DatabaseReference mReferenceConstructorStandings;
@@ -53,6 +56,7 @@ public class FirebaseDatabaseHelper {
                     keys.add(keyNode.getKey());
                     Driver driver = keyNode.getValue(Driver.class);
                     drivers.add(driver);
+
                 }
                 dataStatus.DataIsLoaded(drivers, keys);
             }

@@ -3,6 +3,7 @@ package com.example.f1_viewer.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.f1_viewer.Classes.Driver;
+import com.example.f1_viewer.Classes.DriverAdapter;
 import com.example.f1_viewer.Config.RecyclerView_ConfigDrivers;
 import com.example.f1_viewer.Firebase.GetData.FirebaseDatabaseHelper;
 import com.example.f1_viewer.MainActivity;
 import com.example.f1_viewer.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChampionshipFragment extends Fragment  {
@@ -48,60 +51,48 @@ public class ChampionshipFragment extends Fragment  {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        context = getActivity();
         //CODE GOES HERE!
         btn_ShowDriversView = view.findViewById(R.id.btn_ShowDriversView);
         btn_ShowConstructorView = view.findViewById(R.id.btn_ShowConstructorView);
-        mRecyclerView = view.findViewById(R.id.recyclerView);
 
 
 
-        new FirebaseDatabaseHelper().readDrivers(new FirebaseDatabaseHelper.DataStatusDrivers() {
+        List<Driver> drivers = new ArrayList<>();
+        List<String> keys = new ArrayList<>();
 
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        DriverAdapter adapter = new DriverAdapter(getActivity(), drivers, keys);
+        recyclerView.setAdapter(adapter);
+
+        Toast.makeText(getActivity() , "USO", Toast.LENGTH_SHORT).show();
+        FirebaseDatabaseHelper databaseHelper = new FirebaseDatabaseHelper();
+        databaseHelper.readDrivers(new FirebaseDatabaseHelper.DataStatusDrivers() {
             @Override
-
             public void DataIsLoaded(List<Driver> drivers, List<String> keys) {
+                //Update the adapter with the new data and notify it that the data has changed
 
-                Toast.makeText(context, "uso", Toast.LENGTH_SHORT).show();
-                new RecyclerView_ConfigDrivers().setConfig(mRecyclerView, context, drivers, keys);
-
+                adapter.updateData(drivers, keys);
+                adapter.notifyDataSetChanged();
             }
+
             @Override
-            public void DataIsInserted() {
-
-            }
+            public void DataIsInserted() {}
             @Override
-            public void DataIsUpdated() {
-
-            }
+            public void DataIsUpdated() {}
             @Override
-            public void DataIsDeleted() {
-
-            }
-
-        });
-        btn_ShowDriversView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
+            public void DataIsDeleted() {}
         });
 
-
-
-
-        btn_ShowConstructorView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
-    private void updateListView(List<String> data) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, data);
-        //mRecyclerView.setAdapter(adapter);
+    @Override
+    public void onStop() {
+        super.onStop();
+      //  databaseHelper.mReferenceDrivers.removeEventListener();
     }
-
-
 }
+
+
+
+

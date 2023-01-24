@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
-    Button btnLogOut;
     ActivityMainBinding binding;
 
     @Override
@@ -31,10 +30,6 @@ public class MainActivity extends AppCompatActivity {
        // setContentView(R.layout.activity_main);
 
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
-
-
-
 
         replaceFragment(new ChampionshipFragment()); //default fragment/main page
 
@@ -63,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -72,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
-
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
