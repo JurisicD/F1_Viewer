@@ -6,7 +6,7 @@ public class Race {
 
     public List<Races> racesList;
 
-    private class Races{
+    public class Races{
         private List<Circuit> CircuitsList;
         private List<FirstPractice> firstPracticeList;
         private List<SecondPractice> secondPracticeList;

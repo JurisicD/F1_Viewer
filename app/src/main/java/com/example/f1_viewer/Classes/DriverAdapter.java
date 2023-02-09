@@ -19,7 +19,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
     private List<Driver> drivers;
     private List<String> keys;
 
-    public DriverAdapter(Context context, List<Driver> drivers, List<String> keys) {
+    public DriverAdapter(List<Driver> drivers) {
         this.context = context;
         this.drivers = drivers;
         this.keys = keys;

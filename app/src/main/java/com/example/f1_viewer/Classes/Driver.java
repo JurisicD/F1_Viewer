@@ -1,25 +1,13 @@
 package com.example.f1_viewer.Classes;
-
 public class Driver {
 
-    public String code,
-            constructorId,
-            dateOfBirth,
-            driverId,
-            familyName,
-            givenName,
-            nationality,
-            permanentNumber,
-            url;
+    public String code,constructorId ,dateOfBirth, driverId, familyName, givenName, nationality,permanentNumber, url;
 
-    public Driver(){
-
+    public Driver() {
     }
 
-    public Driver(String code, String constructorId, String dateOfBirth, String driverId, String familyName,
-                  String givenName, String nationality, String permanentNumber, String url) {
+    public Driver(String code, String constructorId, String dateOfBirth, String driverId, String familyName, String givenName, String nationality, String permanentNumber, String url) {
         this.code = code;
-        this.constructorId = constructorId;
         this.dateOfBirth = dateOfBirth;
         this.driverId = driverId;
         this.familyName = familyName;
@@ -27,6 +15,7 @@ public class Driver {
         this.nationality = nationality;
         this.permanentNumber = permanentNumber;
         this.url = url;
+        this.constructorId = constructorId;
     }
 
     public String getCode() {
@@ -35,14 +24,6 @@ public class Driver {
 
     public void setCode(String code) {
         this.code = code;
-    }
-
-    public String getConstructorId() {
-        return constructorId;
-    }
-
-    public void setConstructorId(String constructorId) {
-        this.constructorId = constructorId;
     }
 
     public String getDateOfBirth() {
@@ -101,4 +82,11 @@ public class Driver {
         this.url = url;
     }
 
+    public String getConstructorId() {
+        return constructorId;
+    }
+
+    public void setConstructorId(String constructorId) {
+        this.constructorId = constructorId;
+    }
 }

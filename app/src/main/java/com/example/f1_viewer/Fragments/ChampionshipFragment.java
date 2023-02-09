@@ -15,14 +15,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.f1_viewer.Adapter.DriverAdapter;
+import com.example.f1_viewer.Adapter.MyAdapter;
 import com.example.f1_viewer.Classes.Driver;
-import com.example.f1_viewer.Classes.DriverAdapter;
 import com.example.f1_viewer.Config.RecyclerView_ConfigDrivers;
-import com.example.f1_viewer.Firebase.GetData.FirebaseDatabaseHelper;
 import com.example.f1_viewer.MainActivity;
 import com.example.f1_viewer.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,67 +36,50 @@ import java.util.List;
 public class ChampionshipFragment extends Fragment  {
 
     Button btn_ShowDriversView, btn_ShowConstructorView;
-    private RecyclerView mRecyclerViewConstructors;
-    ConstraintLayout constraintLayoutDriver;
 
     private RecyclerView mRecyclerView;
+    ArrayList<Driver> driversList;
 
+    MyAdapter adapter;
+    private FirebaseDatabase mDatabase;
+    public DatabaseReference mReferenceDrivers;
+
+
+    RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_championship, container, false);
 
-        View contentView = inflater.inflate(R.layout.fragment_championship,
-                                                container, false);
-        return contentView;
-    }
-
-    private Context context;
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        //CODE GOES HERE!
         btn_ShowDriversView = view.findViewById(R.id.btn_ShowDriversView);
         btn_ShowConstructorView = view.findViewById(R.id.btn_ShowConstructorView);
+        mRecyclerView = view.findViewById(R.id.recyclerView);
+
+        driversList = new ArrayList<>();
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
+        driversList.add(new Driver("VER", "Red Bull", "01.01.2022", "verstapen", "Verstappen","Max","Duch","1",""));
 
 
 
-        List<Driver> drivers = new ArrayList<>();
-        List<String> keys = new ArrayList<>();
+        adapter = new MyAdapter(getContext(), driversList);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        DriverAdapter adapter = new DriverAdapter(getActivity(), drivers, keys);
-        recyclerView.setAdapter(adapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
-        Toast.makeText(getActivity() , "USO", Toast.LENGTH_SHORT).show();
-        FirebaseDatabaseHelper databaseHelper = new FirebaseDatabaseHelper();
-        databaseHelper.readDrivers(new FirebaseDatabaseHelper.DataStatusDrivers() {
-            @Override
-            public void DataIsLoaded(List<Driver> drivers, List<String> keys) {
-                //Update the adapter with the new data and notify it that the data has changed
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(adapter);
 
-                adapter.updateData(drivers, keys);
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void DataIsInserted() {}
-            @Override
-            public void DataIsUpdated() {}
-            @Override
-            public void DataIsDeleted() {}
-        });
-
+        return view;
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-      //  databaseHelper.mReferenceDrivers.removeEventListener();
-    }
+
 }
 
 
