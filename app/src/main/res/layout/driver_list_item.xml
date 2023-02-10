@@ -44,7 +44,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="27dp"
         android:layout_marginBottom="120dp"
-        android:text="VER"
+        android:text="1"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/code_txtView"
+        android:id="@+id/PTS_txtView"
         android:layout_width="37dp"
         android:layout_height="22dp"
         android:layout_marginTop="20dp"
@@ -62,7 +62,7 @@
         android:text="PTS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/points_txt"
+        app:layout_constraintStart_toEndOf="@+id/teamPoints_txtView"
         app:layout_constraintTop_toBottomOf="@+id/name_txtView"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -76,13 +76,13 @@
         android:layout_marginBottom="84dp"
         android:text="Red Bull"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/points_txt"
+        app:layout_constraintEnd_toStartOf="@+id/teamPoints_txtView"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/name_txtView"
         app:layout_constraintVertical_bias="0.888" />
 
     <TextView
-        android:id="@+id/points_txt"
+        android:id="@+id/teamPoints_txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -90,7 +90,7 @@
         android:layout_marginBottom="86dp"
         android:text="123"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/code_txtView"
+        app:layout_constraintEnd_toStartOf="@+id/PTS_txtView"
         app:layout_constraintStart_toEndOf="@+id/textViewTeamName"
         app:layout_constraintTop_toBottomOf="@+id/name_txtView"
         app:layout_constraintVertical_bias="0.0" />

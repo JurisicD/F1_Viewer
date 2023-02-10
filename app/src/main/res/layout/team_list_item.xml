@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutTeam"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:background="@drawable/layout_bg">
+
+    <ImageView
+        android:id="@+id/imageViewTeam"
+        android:layout_width="109dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/car" />
+
+    <TextView
+        android:id="@+id/teamName_txtView"
+        android:layout_width="183dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="63dp"
+        android:text="Red Bull Racing"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTeam"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/PTS_txtView"
+        android:layout_width="37dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="53dp"
+        android:text="PTS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/teamPoints_txtView"
+        app:layout_constraintTop_toBottomOf="@+id/drivers_textView" />
+
+    <TextView
+        android:id="@+id/teamPoints_txtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="53dp"
+        android:text="123"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/PTS_txtView"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTeam"
+        app:layout_constraintTop_toBottomOf="@+id/drivers_textView" />
+
+    <TextView
+        android:id="@+id/drivers_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="94dp"
+        android:text="Verstappen | Perez"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewTeam"
+        app:layout_constraintTop_toBottomOf="@+id/teamName_txtView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

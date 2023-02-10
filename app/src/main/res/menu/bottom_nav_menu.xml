@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/miChampionship"
-        android:title="Championship"
-        android:icon="@drawable/ic_championship" />
 
     <item
         android:id="@+id/miSchedule"
         android:title="Schedule"
         android:icon="@drawable/ic_schedule" />
 
+
     <item
-        android:id="@+id/miRaceTracks"
-        android:title="RaceTracks"
-        android:icon="@drawable/ic_f1_racetracks" />
+        android:id="@+id/miChampionship"
+        android:title="Championship"
+        android:icon="@drawable/ic_championship" />
+
 
     <item
         android:id="@+id/miUserSettings"

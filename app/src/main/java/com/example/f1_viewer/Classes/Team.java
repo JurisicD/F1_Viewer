@@ -1,21 +1,24 @@
 package com.example.f1_viewer.Classes;
 
-public class Constructor {
+import java.util.List;
 
-    public String constructorId,
-            name,
-            nationality,
-            url;
+public class Team {
 
-    public Constructor() {
-    }
+    private String constructorId;
+    private String name;
+    private String nationality;
+    private String points;
+    public List<String> drivers;
 
-    public Constructor(String constructorId, String name, String nationality, String url) {
+
+    public Team(String constructorId, String name, String nationality, String points,List<String> drivers) {
         this.constructorId = constructorId;
         this.name = name;
         this.nationality = nationality;
-        this.url = url;
+        this.points = points;
+        this.drivers = drivers;
     }
+
 
     public String getConstructorId() {
         return constructorId;
@@ -41,11 +44,20 @@ public class Constructor {
         this.nationality = nationality;
     }
 
-    public String getUrl() {
-        return url;
+    public String getPoints() {
+        return points;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPoints(String points) {
+        this.points = points;
+    }
+
+    public List<String> getDrivers() {
+        return drivers;
+    }
+
+    public void setDrivers(List<String> drivers) {
+        this.drivers = drivers;
     }
 }
+

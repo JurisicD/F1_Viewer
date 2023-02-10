@@ -12,58 +12,63 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.f1_viewer.Adapter.MyAdapter;
+import com.example.f1_viewer.Adapter.DriverAdapter;
+import com.example.f1_viewer.Adapter.RaceAdapter;
+import com.example.f1_viewer.Adapter.TeamAdapter;
 import com.example.f1_viewer.Classes.Driver;
-import com.example.f1_viewer.Classes.Vozac;
+import com.example.f1_viewer.Classes.Race;
+import com.example.f1_viewer.Classes.Team;
 import com.example.f1_viewer.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ScheduleFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
-    ArrayList<Driver> driversList;
 
-    MyAdapter adapter;
-    private FirebaseDatabase mDatabase;
-    public DatabaseReference mReferenceDrivers;
+    ArrayList<Race> raceList;
+    RaceAdapter raceAdapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false);
-    }
-
-
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
         mRecyclerView = view.findViewById(R.id.recyclerView_Schedule);
 
-        driversList = new ArrayList<>();
-        driversList.add(new Driver("12", "red", "12", "12", "ver","max","212","das","12"));
+        raceList = new ArrayList<>();
+
+        ArrayList<String> list = new ArrayList<>(); // race result by drivers from 1.st to last.
+        list.add("Verstappen");
+        list.add("Perez");
+
+        raceList.add(new Race("SLika staze", "Bahrain"," Bahrain International Circuit","3.550 km","Round 1",
+                "18-20 March","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
+
+        raceList.add(new Race("SLika staze", "Saudi Arabia"," Jeddah Coniche Circuit","3.550 km","Round 2",
+                "22-27 April","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
+
+        raceList.add(new Race("SLika staze", "Australia"," Australian Grand Prix","3.550 km","Round 3",
+                "08-10 April","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
+        raceList.add(new Race("SLika staze", "Italy"," Emilia Romanga Grand Prix","3.550 km","Round 4",
+                "22-24 April","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
 
 
-        adapter = new MyAdapter(getContext(), driversList);
+        raceAdapter = new RaceAdapter(getContext(), raceList);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setAdapter(raceAdapter);
 
-      
+        return view;
     }
-
-
-
 }
+
+
+
+

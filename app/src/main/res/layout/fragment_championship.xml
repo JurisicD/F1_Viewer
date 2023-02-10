@@ -15,46 +15,44 @@
 
         <Button
             android:id="@+id/btn_ShowDriversView"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="94dp"
+            android:background="@drawable/layout_bg"
             android:text="Drivers"
-            app:layout_constraintEnd_toStartOf="@+id/btn_ShowConstructorView"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_ShowConstructorView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_ShowConstructorView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="100dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="106dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="26dp"
+            android:background="@drawable/layout_bg"
             android:text="Teams"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_ShowDriversView"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintEnd_toStartOf="@+id/btn_ShowDriversView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="413dp"
-            android:layout_height="592dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="410dp"
+            android:layout_height="555dp"
+
+            android:layout_marginTop="31dp"
+            android:paddingStart="30dp"
+            android:paddingTop="30dp"
+            android:paddingEnd="30dp"
+            android:paddingBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_ShowDriversView"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/btn_ShowDriversView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

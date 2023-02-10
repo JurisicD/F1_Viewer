@@ -9,17 +9,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.f1_viewer.Classes.Vozac;
 import com.example.f1_viewer.Fragments.ChampionshipFragment;
-import com.example.f1_viewer.Fragments.RaceTracksFragment;
 import com.example.f1_viewer.Fragments.ScheduleFragment;
 import com.example.f1_viewer.Fragments.UserSettingsFragment;
 import com.example.f1_viewer.databinding.ActivityMainBinding;
 import com.example.f1_viewer.Firebase.firebase_administration.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        replaceFragment(new ChampionshipFragment()); //default fragment/main page
+        replaceFragment(new ScheduleFragment()); //default fragment/main page
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -50,9 +46,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.miSchedule:
                     replaceFragment(new ScheduleFragment());
-                    break;
-                case R.id.miRaceTracks:
-                    replaceFragment(new RaceTracksFragment());
                     break;
                 case R.id.miUserSettings:
                     replaceFragment(new UserSettingsFragment());
