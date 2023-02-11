@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.f1_viewer.Classes.Driver;
 import com.example.f1_viewer.Classes.Team;
 import com.example.f1_viewer.R;
@@ -33,6 +34,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
     // 3- View Holder
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        private  ImageView driverImg;
         private TextView name_text;
         private TextView team_text;
         private TextView number_text;
@@ -44,6 +46,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
             name_text = itemView.findViewById(R.id.name_txtView);
             team_text = itemView.findViewById(R.id.textViewTeamName);
             number_text = itemView.findViewById(R.id.number_txtView);
+            driverImg = itemView.findViewById((R.id.driverImageView));
 
         }
     }
@@ -59,9 +62,16 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Driver model = driverList.get(position);
+
+        Glide.with(holder.itemView.getContext())
+                .load(model.getPicture())
+                .into(holder.driverImg);
+
         holder.name_text.setText(model.getGivenName()+ " "+model.getFamilyName());
         holder.team_text.setText(model.getConstructorId());
-        holder.number_text.setText(model.getPermanentNumber());
+        holder.number_text.setText(""+model.getPermanentNumber());
+
+
 
 
         //Handle the click events

@@ -12,12 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.F1_Viewer"
         tools:targetApi="31">
-        <activity
-            android:name=".ChampionshipActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+        <activity android:name=".Activites.TeamDetailActivity">
         </activity>
         <activity
             android:name=".Firebase.firebase_administration.SignUpActivity"

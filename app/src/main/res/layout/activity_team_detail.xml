@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activites.TeamDetailActivity">
+
+
+    <TextView
+        android:id="@+id/txt_drivers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="396dp"
+        android:text="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_team_logo" />
+
+    <TextView
+        android:id="@+id/txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="348dp" />
+
+    <TextView
+        android:id="@+id/txt_nationality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        tools:layout_editor_absoluteX="371dp"
+        tools:layout_editor_absoluteY="624dp" />
+
+    <TextView
+        android:id="@+id/txt_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"
+        tools:layout_editor_absoluteX="264dp"
+        tools:layout_editor_absoluteY="97dp" />
+
+    <ImageView
+        android:id="@+id/img_team_car"
+        android:layout_width="208dp"
+        android:layout_height="255dp"
+        app:srcCompat="@drawable/car"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="282dp" />
+
+    <ImageView
+        android:id="@+id/img_team_logo"
+        android:layout_width="126dp"
+        android:layout_height="87dp"
+        app:srcCompat="@drawable/f1_logo"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="2dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

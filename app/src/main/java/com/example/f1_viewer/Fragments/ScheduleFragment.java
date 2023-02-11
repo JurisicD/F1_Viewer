@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,11 @@ import com.example.f1_viewer.Classes.Driver;
 import com.example.f1_viewer.Classes.Race;
 import com.example.f1_viewer.Classes.Team;
 import com.example.f1_viewer.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -42,31 +46,45 @@ public class ScheduleFragment extends Fragment {
 
         raceList = new ArrayList<>();
 
-        ArrayList<String> list = new ArrayList<>(); // race result by drivers from 1.st to last.
-        list.add("Verstappen");
-        list.add("Perez");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Race");
 
-        raceList.add(new Race("SLika staze", "Bahrain"," Bahrain International Circuit","3.550 km","Round 1",
-                "18-20 March","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    String circuitName = childSnapshot.child("circuitName").getValue(String.class);
+                    String country = childSnapshot.child("country").getValue(String.class);
+                    String dateFromTo = childSnapshot.child("dateFromTo").getValue(String.class);
+                    String lapRecord = childSnapshot.child("lapRecord").getValue(String.class);
+                    int numberOfLaps = childSnapshot.child("numberOfLaps").getValue(Integer.class);
+                    double raceDistance = childSnapshot.child("raceDistance").getValue(Double.class);
+                    String round = childSnapshot.child("round").getValue(String.class);
+                    double trackDistance = childSnapshot.child("trackDistance").getValue(Double.class);
+                    String trackImg = childSnapshot.child("trackImg").getValue(String.class);
+                    String trackName = childSnapshot.child("trackName").getValue(String.class);
 
-        raceList.add(new Race("SLika staze", "Saudi Arabia"," Jeddah Coniche Circuit","3.550 km","Round 2",
-                "22-27 April","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
+                    raceList.add(new Race(circuitName, country, dateFromTo, lapRecord, numberOfLaps, raceDistance, round, trackDistance, trackImg, trackName));
+                }
 
-        raceList.add(new Race("SLika staze", "Australia"," Australian Grand Prix","3.550 km","Round 3",
-                "08-10 April","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
-        raceList.add(new Race("SLika staze", "Italy"," Emilia Romanga Grand Prix","3.550 km","Round 4",
-                "22-24 April","52","Lap Record: 1.35.455 Charles Leclerk(2018)",list));
+                raceAdapter = new RaceAdapter(getContext(), raceList);
 
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
-        raceAdapter = new RaceAdapter(getContext(), raceList);
+                mRecyclerView.setLayoutManager(layoutManager);
+                mRecyclerView.setAdapter(raceAdapter);
+            }
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(raceAdapter);
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Firebase", "Failed to read value.", error.toException());
+            }
+        });
 
         return view;
     }
+
 }
 
 

@@ -6,36 +6,40 @@ import java.util.List;
 
 public class Race {
 
-    private String trackImg;            // Slika staze
-    private String country;             // Bahrain
-    private String circuitName;         // Bahrain International Circuit
-    private String raceDistance;        // 3.550 km
-    private String round;               // Round 1 // Round 2 // Round 3...
-    private String dateFromTo;          // 18-20 March
-    private String numberOfLaps;        // 52
-    private String lapRecorde;          // Lap Record: 1.35.455 Charles Leclerk(2018)
-    private List<String> raceResult;    // 01 Lec,02 Sainz.....
+    private String circuitName;                        // FORMULA 1 GULF AIR BAHRAIN GRAND PRIX
+    private String country;                               // Bahrain
+    private String dateFromTo;                       // 03-05 MAR
+    private String lapRecord;                          // 1:31.447 Pedro de la Rosa (2005)
+    private int numberOfLaps;                       // 57
+    private double raceDistance;                   // 308.238  --> km
+    private String round;                               // Round 1
+    private double trackDistance;                 // 5.412  --> km
+    private String trackImg;                          // gs://f1-viewer-a9c2a.appspot.com/races/bahrain_international_circuit.png
+    private String trackName;                       // Bahrain International Circuit
 
+    public Race() {
+    }
 
-    public Race(String trackImg, String country, String circuitName, String raceDistance, String round, String dateFromTo, String numberOfLaps, String lapRecorde, List<String> raceResult) {
-        this.trackImg = trackImg;
-        this.country = country;
+    public Race(String circuitName, String country, String dateFromTo, String lapRecord, int numberOfLaps, double raceDistance, String round, double trackDistance, String trackImg, String trackName) {
         this.circuitName = circuitName;
+        this.country = country;
+        this.dateFromTo = dateFromTo;
+        this.lapRecord = lapRecord;
+        this.numberOfLaps = numberOfLaps;
         this.raceDistance = raceDistance;
         this.round = round;
-        this.dateFromTo = dateFromTo;
-        this.numberOfLaps = numberOfLaps;
-        this.lapRecorde = lapRecorde;
-        this.raceResult = raceResult;
-    }
-
-
-    public String getTrackImg() {
-        return trackImg;
-    }
-
-    public void setTrackImg(String trackImg) {
+        this.trackDistance = trackDistance;
         this.trackImg = trackImg;
+        this.trackName = trackName;
+    }
+
+
+    public String getCircuitName() {
+        return circuitName;
+    }
+
+    public void setCircuitName(String circuitName) {
+        this.circuitName = circuitName;
     }
 
     public String getCountry() {
@@ -46,19 +50,35 @@ public class Race {
         this.country = country;
     }
 
-    public String getCircuitName() {
-        return circuitName;
+    public String getDateFromTo() {
+        return dateFromTo;
     }
 
-    public void setCircuitName(String circuitName) {
-        this.circuitName = circuitName;
+    public void setDateFromTo(String dateFromTo) {
+        this.dateFromTo = dateFromTo;
     }
 
-    public String getRaceDistance() {
+    public String getLapRecord() {
+        return lapRecord;
+    }
+
+    public void setLapRecord(String lapRecord) {
+        this.lapRecord = lapRecord;
+    }
+
+    public int getNumberOfLaps() {
+        return numberOfLaps;
+    }
+
+    public void setNumberOfLaps(int numberOfLaps) {
+        this.numberOfLaps = numberOfLaps;
+    }
+
+    public double getRaceDistance() {
         return raceDistance;
     }
 
-    public void setRaceDistance(String raceDistance) {
+    public void setRaceDistance(double raceDistance) {
         this.raceDistance = raceDistance;
     }
 
@@ -70,35 +90,27 @@ public class Race {
         this.round = round;
     }
 
-    public String getDateFromTo() {
-        return dateFromTo;
+    public double getTrackDistance() {
+        return trackDistance;
     }
 
-    public void setDateFromTo(String dateFromTo) {
-        this.dateFromTo = dateFromTo;
+    public void setTrackDistance(double trackDistance) {
+        this.trackDistance = trackDistance;
     }
 
-    public String getNumberOfLaps() {
-        return numberOfLaps;
+    public String getTrackImg() {
+        return trackImg;
     }
 
-    public void setNumberOfLaps(String numberOfLaps) {
-        this.numberOfLaps = numberOfLaps;
+    public void setTrackImg(String trackImg) {
+        this.trackImg = trackImg;
     }
 
-    public String getLapRecorde() {
-        return lapRecorde;
+    public String getTrackName() {
+        return trackName;
     }
 
-    public void setLapRecorde(String lapRecorde) {
-        this.lapRecorde = lapRecorde;
-    }
-
-    public List<String> getRaceResult() {
-        return raceResult;
-    }
-
-    public void setRaceResult(List<String> raceResult) {
-        this.raceResult = raceResult;
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
     }
 }

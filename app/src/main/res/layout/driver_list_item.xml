@@ -10,89 +10,61 @@
     >
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/driverImageView"
         android:layout_width="109dp"
         android:layout_height="135dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/motorcyclist" />
 
     <TextView
         android:id="@+id/name_txtView"
-        android:layout_width="185dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="211dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="Max Verstappen"
+        android:text="Driver Name And Surname"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/number_txtView"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/driverImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/number_txtView"
 
-        android:layout_width="34dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="120dp"
+        android:layout_width="38dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="123dp"
         android:text="1"
-        android:textStyle="italic"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/name_txtView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTS_txtView"
-        android:layout_width="37dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="133dp"
-        android:layout_marginBottom="84dp"
-        android:text="PTS"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/teamPoints_txtView"
-        app:layout_constraintTop_toBottomOf="@+id/name_txtView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewTeamName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="84dp"
-        android:text="Red Bull"
+        android:layout_width="110dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="85dp"
+        android:text="Team Name Text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/teamPoints_txtView"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/name_txtView"
-        app:layout_constraintVertical_bias="0.888" />
-
-    <TextView
-        android:id="@+id/teamPoints_txtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="86dp"
-        android:text="123"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/PTS_txtView"
-        app:layout_constraintStart_toEndOf="@+id/textViewTeamName"
-        app:layout_constraintTop_toBottomOf="@+id/name_txtView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/driverImageView"
+        app:layout_constraintTop_toBottomOf="@+id/name_txtView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

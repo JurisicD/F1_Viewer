@@ -1,20 +1,27 @@
 package com.example.f1_viewer.Classes;
 public class Driver {
 
-    public String code,constructorId ,dateOfBirth, driverId, familyName, givenName, nationality,permanentNumber;
+    private String code;                                // VER
+    private String constructorId;                  // Red Bull Racing
+    private String dateOfBirth;                    // 30.09.1997
+    private String familyName;                   // Verstappen
+    private String givenName;                    // Max
+    private String nationality;                     // Belgium
+    private int permanentNumber;            // 1
+    private String picture;                         // gs://f1-viewer-a9c2a.appspot.com/drivers/verstappen.png
 
-    public Driver() {
-    }
-
-    public Driver(String code, String constructorId, String dateOfBirth, String driverId, String familyName, String givenName, String nationality, String permanentNumber) {
+    public Driver(String code, String constructorId, String dateOfBirth, String familyName, String givenName, String nationality, int permanentNumber, String picture) {
         this.code = code;
+        this.constructorId = constructorId;
         this.dateOfBirth = dateOfBirth;
-        this.driverId = driverId;
         this.familyName = familyName;
         this.givenName = givenName;
         this.nationality = nationality;
         this.permanentNumber = permanentNumber;
-        this.constructorId = constructorId;
+        this.picture = picture;
+    }
+
+    public Driver() {
     }
 
     public String getCode() {
@@ -25,20 +32,20 @@ public class Driver {
         this.code = code;
     }
 
+    public String getConstructorId() {
+        return constructorId;
+    }
+
+    public void setConstructorId(String constructorId) {
+        this.constructorId = constructorId;
+    }
+
     public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public String getDriverId() {
-        return driverId;
-    }
-
-    public void setDriverId(String driverId) {
-        this.driverId = driverId;
     }
 
     public String getFamilyName() {
@@ -65,20 +72,19 @@ public class Driver {
         this.nationality = nationality;
     }
 
-    public String getPermanentNumber() {
+    public int getPermanentNumber() {
         return permanentNumber;
     }
 
-    public void setPermanentNumber(String permanentNumber) {
+    public void setPermanentNumber(int permanentNumber) {
         this.permanentNumber = permanentNumber;
     }
 
-
-    public String getConstructorId() {
-        return constructorId;
+    public String getPicture() {
+        return picture;
     }
 
-    public void setConstructorId(String constructorId) {
-        this.constructorId = constructorId;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 }

@@ -1,5 +1,8 @@
 package com.example.f1_viewer;
 
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -8,7 +11,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.example.f1_viewer.Classes.Team;
 import com.example.f1_viewer.Fragments.ChampionshipFragment;
 import com.example.f1_viewer.Fragments.ScheduleFragment;
 import com.example.f1_viewer.Fragments.UserSettingsFragment;
@@ -16,6 +21,13 @@ import com.example.f1_viewer.databinding.ActivityMainBinding;
 import com.example.f1_viewer.Firebase.firebase_administration.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
        // setContentView(R.layout.activity_main);
 
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
 
         replaceFragment(new ScheduleFragment()); //default fragment/main page
 
@@ -68,4 +81,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragContent, fragment);
         fragmentTransaction.commit();
     }
+
+
 }

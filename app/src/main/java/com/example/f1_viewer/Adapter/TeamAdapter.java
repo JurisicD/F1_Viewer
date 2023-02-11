@@ -1,6 +1,8 @@
 package com.example.f1_viewer.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.f1_viewer.Classes.Driver;
+import com.bumptech.glide.Glide;
+import com.example.f1_viewer.Activites.TeamDetailActivity;
 import com.example.f1_viewer.Classes.Team;
 import com.example.f1_viewer.R;
 
@@ -62,22 +65,36 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TeamAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TeamAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Team model = teamList.get(position);
 
-        holder.teamName.setText(model.getConstructorId());
-        holder.teamPoints.setText(model.getPoints());
-        holder.drivers.setText(model.getConstructorId());
-        holder.drivers.setText(model.getDrivers().get(0) + " | "+ model.getDrivers().get(1));
+        holder.teamName.setText("" + model.getName());
+        holder.teamPoints.setText("" + model.getPoints());
+        holder.drivers.setText("" + model.getDrivers().get(0) + " | " + model.getDrivers().get(1));
+
+        Glide.with(holder.itemView.getContext())
+                .load(model.getTeamLogoImg())
+                .into(holder.imageTeam);
 
         //Handle the click events
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "You Choose: "+teamList.get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "You Choose: " + teamList.get(position).getName(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context, TeamDetailActivity.class);
+                intent.putExtra("constructorId", teamList.get(position).getConstructorId());
+                intent.putStringArrayListExtra("drivers", (ArrayList<String>) teamList.get(position).getDrivers());
+                intent.putExtra("name", teamList.get(position).getName());
+                intent.putExtra("nationality", teamList.get(position).getNationality());
+                intent.putExtra("points", teamList.get(position).getPoints());
+                intent.putExtra("teamCarImg", teamList.get(position).getTeamCarImg());
+                intent.putExtra("teamLogoImg", teamList.get(position).getTeamLogoImg());
+                context.startActivity(intent);
+
+
             }
         });
-
     }
 
     @Override
