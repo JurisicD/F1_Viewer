@@ -9,51 +9,94 @@
 
     <TextView
         android:id="@+id/txt_drivers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="396dp"
+        android:layout_width="288dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="128dp"
         android:text="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_team_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/img_team_car" />
 
     <TextView
         android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="348dp" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="24dp"
+        android:text="Hass F1 Team"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/img_team_logo"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt_nationality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="624dp" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:text="Kannapolis, United States"
+        app:layout_constraintStart_toEndOf="@+id/img_team_logo"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
     <TextView
         android:id="@+id/txt_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text"
-        tools:layout_editor_absoluteX="264dp"
-        tools:layout_editor_absoluteY="97dp" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="233dp"
+        android:layout_marginBottom="58dp"
+        android:text="30 PTS"
+        app:layout_constraintBottom_toTopOf="@+id/img_team_car"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/img_team_logo" />
 
     <ImageView
         android:id="@+id/img_team_car"
-        android:layout_width="208dp"
-        android:layout_height="255dp"
-        app:srcCompat="@drawable/car"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="282dp" />
+        android:layout_width="379dp"
+        android:layout_height="181dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="43dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_drivers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_points"
+        app:srcCompat="@drawable/car" />
 
     <ImageView
         android:id="@+id/img_team_logo"
         android:layout_width="126dp"
         android:layout_height="87dp"
-        app:srcCompat="@drawable/f1_logo"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="2dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="21dp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_points"
+        app:layout_constraintEnd_toStartOf="@+id/txt_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/f1_logo" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="58dp"
+        android:text="Points scored: "
+        app:layout_constraintBottom_toTopOf="@+id/img_team_car"
+        app:layout_constraintEnd_toStartOf="@+id/txt_points"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_team_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
