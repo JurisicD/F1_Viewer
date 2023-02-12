@@ -41,6 +41,8 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
         private TextView team_text;
         private TextView number_text;
 
+        private TextView points_txt;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -49,6 +51,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
             team_text = itemView.findViewById(R.id.textViewTeamName);
             number_text = itemView.findViewById(R.id.number_txtView);
             driverImg = itemView.findViewById((R.id.driverImageView));
+            points_txt = itemView.findViewById(R.id.textView_poitns_scored_season);
 
         }
     }
@@ -72,6 +75,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
         holder.name_text.setText(model.getGivenName()+ " "+model.getFamilyName());
         holder.team_text.setText(model.getConstructorId());
         holder.number_text.setText(""+model.getPermanentNumber());
+        holder.points_txt.setText(""+model.getPoints()+"PTS");
 
 
 
@@ -97,6 +101,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
                 intent.putExtra("firstWin", driverList.get(position).getFirstWin());
                 intent.putExtra("numberOfTitles", driverList.get(position).getNumberOfTitles());
                 intent.putExtra("picture", driverList.get(position).getPicture());
+                intent.putExtra("points",driverList.get(position).getPoints());
                 context.startActivity(intent);
             }
         });

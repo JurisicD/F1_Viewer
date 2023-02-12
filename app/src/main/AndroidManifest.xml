@@ -13,6 +13,9 @@
         android:theme="@style/Theme.F1_Viewer"
         tools:targetApi="31">
         <activity
+            android:name=".Activites.PointAdministrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activites.RaceDetailActivity"
             android:exported="false" />
         <activity

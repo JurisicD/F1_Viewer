@@ -28,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ChampionshipFragment extends Fragment  {
@@ -81,11 +83,17 @@ public class ChampionshipFragment extends Fragment  {
                             String firstWin = childSnapshot.child("firstWin").getValue(String.class);
                             int numberOfTitles = childSnapshot.child("numberOfTitles").getValue(Integer.class);
                             String picture = childSnapshot.child("picture").getValue(String.class);
+                            int points = childSnapshot.child("points").getValue(Integer.class);
 
-                            driversList.add(new Driver(code, constructorId, dateOfBirth, familyName, givenName, nationality, permanentNumber, wins, podiums, poles, firstEntry, firstWin, numberOfTitles, picture));
+                            driversList.add(new Driver(code, constructorId, dateOfBirth, familyName, givenName, nationality, permanentNumber, wins, podiums, poles, firstEntry, firstWin, numberOfTitles, picture,points));
 
                         }
-
+                        Collections.sort(driversList, new Comparator<Driver>() {
+                            @Override
+                            public int compare(Driver o1, Driver o2) {
+                                return Integer.compare(o2.getPoints(), o1.getPoints());
+                            }
+                        });
                         driverAdapter = new DriverAdapter(getContext(), driversList);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
@@ -127,7 +135,12 @@ public class ChampionshipFragment extends Fragment  {
 
                             teamList.add(new Team(constructorId, drivers, name, nationality, points, teamCarImg, teamLogoImg));
                         }
-
+                        Collections.sort(teamList, new Comparator<Team>() {
+                            @Override
+                            public int compare(Team o1, Team o2) {
+                                return Double.compare(o2.getPoints(), o1.getPoints());
+                            }
+                        });
                         teamAdapter = new TeamAdapter(getContext(), teamList);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 

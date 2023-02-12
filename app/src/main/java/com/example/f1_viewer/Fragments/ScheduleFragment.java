@@ -67,6 +67,7 @@ public class ScheduleFragment extends Fragment {
                     raceList.add(new Race(circuitName, country, dateFromTo, lapRecord, numberOfLaps, raceDistance, round, trackDistance, trackImg, trackName));
                 }
 
+
                 raceAdapter = new RaceAdapter(getContext(), raceList);
 
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);

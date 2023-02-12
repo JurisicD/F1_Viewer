@@ -16,11 +16,13 @@ public class Driver {
     private int numberOfTitles;
     private String picture;
 
+    private int points;
+
 
     public Driver() {
     }
 
-    public Driver(String code, String constructorId, String dateOfBirth, String familyName, String givenName, String nationality, int permanentNumber, int wins, int podiums, int poles, String firstEntry, String firstWin, int numberOfTitles, String picture) {
+    public Driver(String code, String constructorId, String dateOfBirth, String familyName, String givenName, String nationality, int permanentNumber, int wins, int podiums, int poles, String firstEntry, String firstWin, int numberOfTitles, String picture, int points) {
         this.code = code;
         this.constructorId = constructorId;
         this.dateOfBirth = dateOfBirth;
@@ -35,6 +37,7 @@ public class Driver {
         this.firstWin = firstWin;
         this.numberOfTitles = numberOfTitles;
         this.picture = picture;
+        this.points = points;
     }
 
     public String getCode() {
@@ -147,5 +150,13 @@ public class Driver {
 
     public void setPicture(String picture) {
         this.picture = picture;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }
