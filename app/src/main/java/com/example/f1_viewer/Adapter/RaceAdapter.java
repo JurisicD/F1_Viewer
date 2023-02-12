@@ -1,6 +1,7 @@
 package com.example.f1_viewer.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.f1_viewer.Activites.RaceDetailActivity;
 import com.example.f1_viewer.Classes.Race;
 import com.example.f1_viewer.R;
 
@@ -68,15 +70,23 @@ public class RaceAdapter extends RecyclerView.Adapter<RaceAdapter.ViewHolder>{
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Toast.makeText(context, "You Choose: "+raceList.get(position).getCircuitName(), Toast.LENGTH_SHORT).show();
 
-              //  Intent i = new Intent(context.getApplicationContext(), SingleScheduleFragment.class);
 
-                // passing the name to second activity
-               // i.putExtra("name", raceList.get(position).getCircuitName());
+                Intent intent = new Intent(context, RaceDetailActivity.class);
+                Race race = raceList.get(position);
+                intent.putExtra("circuitName", race.getCircuitName());
+                intent.putExtra("country", race.getCountry());
+                intent.putExtra("dateFromTo", race.getDateFromTo());
+                intent.putExtra("lapRecord", race.getLapRecord());
+                intent.putExtra("numberOfLaps", race.getNumberOfLaps());
+                intent.putExtra("raceDistance", race.getRaceDistance());
+                intent.putExtra("round", race.getRound());
+                intent.putExtra("trackDistance", race.getTrackDistance());
+                intent.putExtra("trackImg", race.getTrackImg());
+                intent.putExtra("trackName", race.getTrackName());
+                context.startActivity(intent);
 
-               // Fragme
 
             }
         });

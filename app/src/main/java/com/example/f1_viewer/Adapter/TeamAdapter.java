@@ -92,7 +92,6 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder>{
                 intent.putExtra("teamLogoImg", teamList.get(position).getTeamLogoImg());
                 context.startActivity(intent);
 
-
             }
         });
     }

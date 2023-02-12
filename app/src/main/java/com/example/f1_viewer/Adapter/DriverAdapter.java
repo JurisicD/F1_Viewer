@@ -1,6 +1,7 @@
 package com.example.f1_viewer.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.f1_viewer.Activites.DriverDetailActivity;
 import com.example.f1_viewer.Classes.Driver;
 import com.example.f1_viewer.Classes.Team;
 import com.example.f1_viewer.R;
@@ -79,6 +81,17 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "You Choose: "+driverList.get(position).getCode(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(context, DriverDetailActivity.class);
+                intent.putExtra("code", driverList.get(position).getCode());
+                intent.putExtra("constructorId", driverList.get(position).getConstructorId());
+                intent.putExtra("dateOfBirth", driverList.get(position).getDateOfBirth());
+                intent.putExtra("familyName", driverList.get(position).getFamilyName());
+                intent.putExtra("givenName", driverList.get(position).getGivenName());
+                intent.putExtra("nationality", driverList.get(position).getNationality());
+                intent.putExtra("permanentNumber", driverList.get(position).getPermanentNumber());
+                intent.putExtra("picture", driverList.get(position).getPicture());
+                context.startActivity(intent);
             }
         });
 

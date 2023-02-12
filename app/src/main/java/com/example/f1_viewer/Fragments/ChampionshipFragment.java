@@ -94,7 +94,6 @@ public class ChampionshipFragment extends Fragment  {
             }
         });
 
-
         btn_ShowConstructorView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
