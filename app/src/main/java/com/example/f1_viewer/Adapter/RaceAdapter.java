@@ -74,17 +74,16 @@ public class RaceAdapter extends RecyclerView.Adapter<RaceAdapter.ViewHolder>{
 
 
                 Intent intent = new Intent(context, RaceDetailActivity.class);
-                Race race = raceList.get(position);
-                intent.putExtra("circuitName", race.getCircuitName());
-                intent.putExtra("country", race.getCountry());
-                intent.putExtra("dateFromTo", race.getDateFromTo());
-                intent.putExtra("lapRecord", race.getLapRecord());
-                intent.putExtra("numberOfLaps", race.getNumberOfLaps());
-                intent.putExtra("raceDistance", race.getRaceDistance());
-                intent.putExtra("round", race.getRound());
-                intent.putExtra("trackDistance", race.getTrackDistance());
-                intent.putExtra("trackImg", race.getTrackImg());
-                intent.putExtra("trackName", race.getTrackName());
+                intent.putExtra("circuitName", raceList.get(position).getCircuitName());
+                intent.putExtra("country", raceList.get(position).getCountry());
+                intent.putExtra("dateFromTo", raceList.get(position).getDateFromTo());
+                intent.putExtra("lapRecord", raceList.get(position).getLapRecord());
+                intent.putExtra("numberOfLaps", raceList.get(position).getNumberOfLaps());
+                intent.putExtra("raceDistance", raceList.get(position).getRaceDistance());
+                intent.putExtra("round", raceList.get(position).getRound());
+                intent.putExtra("trackDistance", raceList.get(position).getTrackDistance());
+                intent.putExtra("trackImg", raceList.get(position).getTrackImg());
+                intent.putExtra("trackName", raceList.get(position).getTrackName());
                 context.startActivity(intent);
 
 

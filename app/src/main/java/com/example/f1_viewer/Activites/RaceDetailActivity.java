@@ -31,34 +31,38 @@ public class RaceDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_race_detail);
 
         Bundle bundle = getIntent().getExtras();
-        Race race = bundle.getParcelable("race");
-/*
-        tvCircuitName = findViewById(R.id.txt_circuit_name_text);
-        tvCountry = findViewById(R.id.txt_country_text);
-        tvDateFromTo = findViewById(R.id.txt_date_from_to_text);
-        tvLapRecord = findViewById(R.id.txt_lap_record_text);
-        tvNumberOfLaps = findViewById(R.id.txt_number_of_laps_text);
-        tvRaceDistance = findViewById(R.id.txt_race_distance_text);
-        tvRound = findViewById(R.id.txt_round_text);
-        tvTrackDistance = findViewById(R.id.txt_track_distance_text);
-        tvTrackImg = findViewById(R.id.img_track_text);
-        tvTrackName = findViewById(R.id.txt_track_name_text);
-
-        tvCircuitName.setText(race.getCircuitName());
-        tvCountry.setText(race.getCountry());
-        tvDateFromTo.setText(race.getDateFromTo());
-        tvLapRecord.setText(race.getLapRecord());
-        tvNumberOfLaps.setText(String.valueOf(race.getNumberOfLaps()));
-        tvRaceDistance.setText(String.valueOf(race.getRaceDistance()));
-        tvRound.setText(race.getRound());
-        tvTrackDistance.setText(String.valueOf(race.getTrackDistance()));
-        tvTrackName.setText(race.getTrackName());
-        Glide.with(this)
-                .load(race.getTrackImg())
-                .into(tvTrackImg);
+        String circuitName = bundle.getString("circuitName");
+        String country = bundle.getString("country");
+        String dateFromTo = bundle.getString("dateFromTo");
+        String lapRecord = bundle.getString("lapRecord");
+        int numberOfLaps = bundle.getInt("numberOfLaps", 0);
+        double raceDistance = bundle.getDouble("raceDistance", 0.0);
+        String round = bundle.getString("round");
+        double trackDistance = bundle.getDouble("trackDistance", 0.0);
+        String trackImg = bundle.getString("trackImg");
+        String trackName = bundle.getString("trackName");
 
 
-*/
+        tvTrackImg = findViewById(R.id.imageView_track_layout);
+        tvCountry = findViewById(R.id.textView_track_county);
+        tvCircuitName = findViewById(R.id.textView_cuircuit_name);
+        tvTrackDistance = findViewById(R.id.textView_track_distance);
+        tvRound = findViewById(R.id.textView_round_text);
+        tvDateFromTo = findViewById(R.id.textView_date_from_to);
+        tvNumberOfLaps = findViewById(R.id.textView_number_of_laps);
+        tvRaceDistance = findViewById(R.id.textView_race_distance);
+        tvLapRecord = findViewById(R.id.textView_lap_record);
 
+       Glide.with(this)
+                .load(trackImg)
+               .into(tvTrackImg);
+        tvCountry.setText(country);
+        tvCircuitName.setText(circuitName);
+        tvTrackDistance.setText(""+trackDistance+"km");
+        tvRound.setText(round);
+        tvDateFromTo.setText(dateFromTo);
+        tvNumberOfLaps.setText(""+numberOfLaps);
+        tvRaceDistance.setText(""+raceDistance+"km");
+        tvLapRecord.setText(lapRecord);
     }
 }
