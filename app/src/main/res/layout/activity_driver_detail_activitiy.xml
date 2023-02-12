@@ -23,9 +23,7 @@
             android:layout_width="383dp"
             android:layout_height="212dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -151,10 +149,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout5"
-            android:layout_width="383dp"
-            android:layout_height="358dp"
+            android:layout_width="378dp"
+            android:layout_height="372dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -163,9 +160,14 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout10"
                 android:layout_width="347dp"
                 android:layout_height="62dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -174,137 +176,190 @@
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginEnd="35dp"
                     android:text="First Entry:"
                     android:textColor="#EC0E0E"
                     android:textSize="15sp"
                     android:textStyle="bold|italic"
-                    tools:layout_editor_absoluteX="35dp"
-                    tools:layout_editor_absoluteY="21dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView_driver_first_enty"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView_driver_first_enty"
-                    android:layout_width="191dp"
+                    android:layout_width="0dp"
                     android:layout_height="18dp"
+                    android:layout_marginEnd="16dp"
                     android:gravity="center"
                     android:text="2015 Australian Grand Prix"
                     android:textColor="@color/black"
-                    tools:layout_editor_absoluteX="140dp"
-                    tools:layout_editor_absoluteY="22dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView11"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout9"
                 android:layout_width="341dp"
                 android:layout_height="49dp"
-                tools:layout_editor_absoluteX="21dp"
-                tools:layout_editor_absoluteY="85dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
 
                 <TextView
                     android:id="@+id/extView_driver_first_win"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
                     android:gravity="center"
                     android:text="2016 Spanish Grand Prix"
                     android:textColor="@color/black"
-                    tools:layout_editor_absoluteX="142dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView16"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
+                    android:layout_marginEnd="14dp"
                     android:text="First Win:"
                     android:textColor="#EC0E0E"
                     android:textSize="15sp"
                     android:textStyle="bold|italic"
-                    tools:layout_editor_absoluteX="33dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/extView_driver_first_win"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout11"
                 android:layout_width="344dp"
                 android:layout_height="65dp"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="144dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout9">
 
                 <TextView
                     android:id="@+id/textView19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
                     android:text="World Championships:"
                     android:textColor="#EC0E0E"
                     android:textSize="15sp"
                     android:textStyle="bold|italic"
-                    tools:layout_editor_absoluteX="24dp"
-                    tools:layout_editor_absoluteY="24dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView_number_of_titles"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="68dp"
                     android:gravity="center"
                     android:text="2"
                     android:textColor="@color/black"
-                    tools:layout_editor_absoluteX="268dp"
-                    tools:layout_editor_absoluteY="25dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="352dp"
-                android:layout_height="67dp"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="208dp">
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Country:"
-                    android:textColor="#EC0E0E"
-                    android:textSize="15sp"
-                    android:textStyle="bold|italic"
-                    tools:layout_editor_absoluteX="64dp"
-                    tools:layout_editor_absoluteY="25dp" />
-
-                <TextView
-                    android:id="@+id/textView_counry_born"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Netherlands"
-                    android:textColor="@color/black"
-                    tools:layout_editor_absoluteX="197dp"
-                    tools:layout_editor_absoluteY="31dp" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="350dp"
-                android:layout_height="73dp"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="282dp">
+                android:id="@+id/constraintLayout13"
+                android:layout_width="326dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout12">
 
                 <TextView
                     android:id="@+id/textView22"
-                    android:layout_width="98dp"
+                    android:layout_width="0dp"
                     android:layout_height="18dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginEnd="34dp"
                     android:text="Date of birth:"
                     android:textColor="#EC0E0E"
                     android:textSize="15sp"
                     android:textStyle="bold|italic"
-                    tools:layout_editor_absoluteX="34dp"
-                    tools:layout_editor_absoluteY="34dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView_driver_date_of_birth"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView_driver_date_of_birth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="78dp"
                     android:gravity="center"
                     android:text="30.09.1997"
                     android:textColor="@color/black"
-                    tools:layout_editor_absoluteX="164dp"
-                    tools:layout_editor_absoluteY="33dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView22"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout12"
+                android:layout_width="352dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout11">
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:gravity="center"
+                    android:text="Country:"
+                    android:textColor="#EC0E0E"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView_counry_born"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView_counry_born"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center"
+                    android:text="Netherlands"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView20"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
