@@ -74,9 +74,16 @@ public class ChampionshipFragment extends Fragment  {
                             String givenName = childSnapshot.child("givenName").getValue(String.class);
                             String nationality = childSnapshot.child("nationality").getValue(String.class);
                             int permanentNumber = childSnapshot.child("permanentNumber").getValue(Integer.class);
+                            int wins = childSnapshot.child("wins").getValue(Integer.class);
+                            int podiums = childSnapshot.child("podiums").getValue(Integer.class);
+                            int poles = childSnapshot.child("poles").getValue(Integer.class);
+                            String firstEntry = childSnapshot.child("firstEntry").getValue(String.class);
+                            String firstWin = childSnapshot.child("firstWin").getValue(String.class);
+                            int numberOfTitles = childSnapshot.child("numberOfTitles").getValue(Integer.class);
                             String picture = childSnapshot.child("picture").getValue(String.class);
 
-                            driversList.add(new Driver(code, constructorId, dateOfBirth, familyName, givenName, nationality, permanentNumber, picture));
+                            driversList.add(new Driver(code, constructorId, dateOfBirth, familyName, givenName, nationality, permanentNumber, wins, podiums, poles, firstEntry, firstWin, numberOfTitles, picture));
+
                         }
 
                         driverAdapter = new DriverAdapter(getContext(), driversList);

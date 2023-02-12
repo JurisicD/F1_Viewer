@@ -18,6 +18,7 @@
         android:layout_marginBottom="16dp"
         android:padding="5dp"
         android:text="18 - 20 March"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,11 +27,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="271dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="9dp"
+        android:layout_width="227dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="58dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dateTextView"
@@ -40,10 +42,16 @@
             android:id="@+id/roundTextView"
             android:layout_width="86dp"
             android:layout_height="29dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="190dp"
             android:text="Round 1"
             android:textAlignment="center"
+            android:textColor="#EC0E0E"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,25 +59,27 @@
             android:id="@+id/trackCityTextView"
             android:layout_width="202dp"
             android:layout_height="29dp"
-            android:layout_marginStart="59dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:text="Bahrain"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/roundTextView"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roundTextView" />
 
         <TextView
             android:id="@+id/trackNameTextView"
-            android:layout_width="260dp"
-            android:layout_height="43dp"
+            android:layout_width="189dp"
+            android:layout_height="42dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:text="Bahrain International Circuit"
-            android:textAlignment="center"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trackCityTextView"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -90,6 +90,12 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.ViewHolder
                 intent.putExtra("givenName", driverList.get(position).getGivenName());
                 intent.putExtra("nationality", driverList.get(position).getNationality());
                 intent.putExtra("permanentNumber", driverList.get(position).getPermanentNumber());
+                intent.putExtra("wins", driverList.get(position).getWins());
+                intent.putExtra("podiums", driverList.get(position).getPodiums());
+                intent.putExtra("poles", driverList.get(position).getPoles());
+                intent.putExtra("firstEntry", driverList.get(position).getFirstEntry());
+                intent.putExtra("firstWin", driverList.get(position).getFirstWin());
+                intent.putExtra("numberOfTitles", driverList.get(position).getNumberOfTitles());
                 intent.putExtra("picture", driverList.get(position).getPicture());
                 context.startActivity(intent);
             }

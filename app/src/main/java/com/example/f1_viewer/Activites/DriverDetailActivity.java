@@ -12,14 +12,16 @@ import com.example.f1_viewer.R;
 
 public class DriverDetailActivity extends AppCompatActivity {
 
-    TextView tvCode;
-    TextView tvConstructorId;
-    TextView tvDateOfBirth;
-    TextView tvFamilyName;
     TextView tvGivenName;
-    TextView tvNationality;
-    TextView tvPermanentNumber;
     ImageView tvPicture;
+    TextView tvDriversWins;
+    TextView tvDriversPodiums;
+    TextView tvDriversPoles;
+    TextView tvFirsEntry;
+    TextView tvFirstWin;
+    TextView tvNumberOfTitles;
+    TextView tvCountry;
+    TextView tvDateOfBirth;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -34,27 +36,39 @@ public class DriverDetailActivity extends AppCompatActivity {
         String familyName = bundle.getString("familyName");
         String givenName = bundle.getString("givenName");
         String nationality = bundle.getString("nationality");
-        int permanentNumber = bundle.getInt("permanentNumber", 0);
+        int permanentNumber = bundle.getInt("permanentNumber");
+        int wins = bundle.getInt("wins", 0);
+        int podiums = bundle.getInt("podiums", 0);
+        int poles = bundle.getInt("poles", 0);
+        String firstEntry = bundle.getString("firstEntry");
+        String firstWin = bundle.getString("firstWin");
+        int numberOfTitles = bundle.getInt("numberOfTitles", 0);
         String picture = bundle.getString("picture");
 
-        //tvCode = findViewById(R.id.txt_code);
-        //tvConstructorId = findViewById(R.id.txt_constructor_id);
-        //tvDateOfBirth = findViewById(R.id.txt_date_of_birth);
-       // tvFamilyName = findViewById(R.id.txt_family_name);
-        tvGivenName = findViewById(R.id.driver_name_text_view);
-       // tvNationality = findViewById(R.id.txt_nationality);
-        //tvPermanentNumber = findViewById(R.id.txt_permanent_number);
         tvPicture = findViewById(R.id.driver_photo_image_view);
+        tvGivenName = findViewById(R.id.driver_name_text_view);
+        tvDriversWins = findViewById(R.id.textView_driver_number_wins);
+        tvDriversPodiums = findViewById(R.id.textView_driver_number_podiums);
+        tvDriversPoles = findViewById(R.id.textView_driver_number_poles);
+        tvFirsEntry = findViewById(R.id.textView_driver_first_enty);
+        tvFirstWin = findViewById(R.id.extView_driver_first_win);
+        tvNumberOfTitles = findViewById(R.id.textView_number_of_titles);
+        tvCountry = findViewById(R.id.textView_counry_born);
+        tvDateOfBirth = findViewById(R.id.textView_driver_date_of_birth);
 
-        //tvCode.setText(code);
-        //tvConstructorId.setText(constructorId);
-       // tvDateOfBirth.setText(dateOfBirth);
-        //tvFamilyName.setText(familyName);
         tvGivenName.setText(givenName+" "+ familyName);
-        //tvNationality.setText(nationality);
-       // tvPermanentNumber.setText(String.valueOf(permanentNumber));
         Glide.with(this)
                 .load(picture)
                 .into(tvPicture);
+
+        tvDriversWins.setText(String.valueOf(wins));
+        tvDriversPodiums.setText(String.valueOf(podiums));
+        tvDriversPoles.setText(String.valueOf(poles));
+        tvFirsEntry.setText(firstEntry);
+        tvFirstWin.setText(firstWin);
+        tvNumberOfTitles.setText(String.valueOf(numberOfTitles));
+        tvCountry.setText(nationality);
+        tvDateOfBirth.setText(dateOfBirth);
+
     }
 }

@@ -51,8 +51,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item->{
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener(item->{
 
+            Fragment selectedFragment = null;
             switch (item.getItemId()){
                 case R.id.miChampionship:
                     replaceFragment(new ChampionshipFragment());
@@ -63,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.miUserSettings:
                     replaceFragment(new UserSettingsFragment());
                     break;
+            }
+            if (selectedFragment != null) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
+                transaction.replace(R.id.fragContent, selectedFragment);
+                transaction.commit();
             }
             return true;
         });

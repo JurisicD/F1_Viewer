@@ -1,16 +1,26 @@
 package com.example.f1_viewer.Classes;
 public class Driver {
 
-    private String code;                                // VER
-    private String constructorId;                  // Red Bull Racing
-    private String dateOfBirth;                    // 30.09.1997
-    private String familyName;                   // Verstappen
-    private String givenName;                    // Max
-    private String nationality;                     // Belgium
-    private int permanentNumber;            // 1
-    private String picture;                         // gs://f1-viewer-a9c2a.appspot.com/drivers/verstappen.png
+    private String code;
+    private String constructorId;
+    private String dateOfBirth;
+    private String familyName;
+    private String givenName;
+    private String nationality;
+    private int permanentNumber;
+    private int wins;
+    private int podiums;
+    private int poles;
+    private String firstEntry;
+    private String firstWin;
+    private int numberOfTitles;
+    private String picture;
 
-    public Driver(String code, String constructorId, String dateOfBirth, String familyName, String givenName, String nationality, int permanentNumber, String picture) {
+
+    public Driver() {
+    }
+
+    public Driver(String code, String constructorId, String dateOfBirth, String familyName, String givenName, String nationality, int permanentNumber, int wins, int podiums, int poles, String firstEntry, String firstWin, int numberOfTitles, String picture) {
         this.code = code;
         this.constructorId = constructorId;
         this.dateOfBirth = dateOfBirth;
@@ -18,10 +28,13 @@ public class Driver {
         this.givenName = givenName;
         this.nationality = nationality;
         this.permanentNumber = permanentNumber;
+        this.wins = wins;
+        this.podiums = podiums;
+        this.poles = poles;
+        this.firstEntry = firstEntry;
+        this.firstWin = firstWin;
+        this.numberOfTitles = numberOfTitles;
         this.picture = picture;
-    }
-
-    public Driver() {
     }
 
     public String getCode() {
@@ -78,6 +91,54 @@ public class Driver {
 
     public void setPermanentNumber(int permanentNumber) {
         this.permanentNumber = permanentNumber;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+
+    public int getPodiums() {
+        return podiums;
+    }
+
+    public void setPodiums(int podiums) {
+        this.podiums = podiums;
+    }
+
+    public int getPoles() {
+        return poles;
+    }
+
+    public void setPoles(int poles) {
+        this.poles = poles;
+    }
+
+    public String getFirstEntry() {
+        return firstEntry;
+    }
+
+    public void setFirstEntry(String firstEntry) {
+        this.firstEntry = firstEntry;
+    }
+
+    public String getFirstWin() {
+        return firstWin;
+    }
+
+    public void setFirstWin(String firstWin) {
+        this.firstWin = firstWin;
+    }
+
+    public int getNumberOfTitles() {
+        return numberOfTitles;
+    }
+
+    public void setNumberOfTitles(int numberOfTitles) {
+        this.numberOfTitles = numberOfTitles;
     }
 
     public String getPicture() {
