@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.f1_viewer.Adapter.AdapterPoints;
 import com.example.f1_viewer.Adapter.FilteredDriversAdapter;
 import com.example.f1_viewer.Classes.Driver;
+import com.example.f1_viewer.Classes.Team;
 import com.example.f1_viewer.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,17 +20,27 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class PointAdministrationActivity extends AppCompatActivity {
 
     ArrayList<Driver>drivers;
     FilteredDriversAdapter adapter;
+    AdapterPoints adapterPoint;
     RecyclerView mRecyclerView;
+
+    ArrayList<Team> teamList;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poit_administration_activitiy);
+
         Intent intent = getIntent();
         String  constructorId = intent.getStringExtra("constructorId");
         ArrayList<String> drivers = intent.getStringArrayListExtra("drivers");
@@ -46,6 +58,7 @@ public class PointAdministrationActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     String constructorIdFromDB = childSnapshot.child("constructorId").getValue(String.class);
 
@@ -68,10 +81,17 @@ public class PointAdministrationActivity extends AppCompatActivity {
                         filteredDriverList.add(new Driver(code, constructorIdFromDB, dateOfBirth, familyName, givenName, nationality, permanentNumber, wins, podiums, poles, firstEntry, firstWin, numberOfTitles, picture,points));
                     }
                 }
-                adapter = new FilteredDriversAdapter(filteredDriverList, PointAdministrationActivity.this);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(PointAdministrationActivity.this, LinearLayoutManager.VERTICAL, false);
-                mRecyclerView.setLayoutManager(layoutManager);
+                if (adapter != null) {
+                    adapter.clearData();
+                    finish();
+                } else {
+                    adapter = new FilteredDriversAdapter(filteredDriverList, PointAdministrationActivity.this);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(PointAdministrationActivity.this, LinearLayoutManager.VERTICAL, false);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                }
+
                 mRecyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -81,4 +101,6 @@ public class PointAdministrationActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

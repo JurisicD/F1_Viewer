@@ -94,13 +94,6 @@ public class AdapterPoints extends RecyclerView.Adapter<AdapterPoints.ViewHolder
                 intent.putExtra("points", teamList.get(position).getPoints());
                 intent.putExtra("teamCarImg", teamList.get(position).getTeamCarImg());
                 intent.putExtra("teamLogoImg", teamList.get(position).getTeamLogoImg());
-
-
-
-
-
-
-
                 context.startActivity(intent);
 
             }
@@ -110,6 +103,11 @@ public class AdapterPoints extends RecyclerView.Adapter<AdapterPoints.ViewHolder
     @Override
     public int getItemCount() {
         return teamList.size();
+    }
+
+    public void clearData() {
+        teamList.clear();
+        notifyDataSetChanged();
     }
 
 }

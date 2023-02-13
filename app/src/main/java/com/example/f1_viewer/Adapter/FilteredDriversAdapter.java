@@ -35,26 +35,38 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FilteredDriversAdapter extends RecyclerView.Adapter<FilteredDriversAdapter.ViewHolder> {
     private List<Driver> filteredDriverList;
     private Context context;
 
+    String holder_points;
+
+
     public FilteredDriversAdapter(List<Driver> filteredDriverList, Context context) {
         this.filteredDriverList = filteredDriverList;
         this.context = context;
+    }
+    public void clearData() {
+        filteredDriverList.clear();
+        notifyDataSetChanged();
+    }
+    public void addData(ArrayList<Driver> driversList) {
+        this.filteredDriverList.addAll(driversList);
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameTextView;
         private TextView pointsText;
-
         private EditText points;
-
         private Button trigger;
-
         private ImageView dirver_image_view;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,7 +76,6 @@ public class FilteredDriversAdapter extends RecyclerView.Adapter<FilteredDrivers
             trigger = itemView.findViewById(R.id.btn_save_points);
             dirver_image_view = itemView.findViewById(R.id.imageView_drivers_points);
         }
-
         public void bind(Driver filteredDriver) {
             nameTextView.setText(filteredDriver.getGivenName() + " " + filteredDriver.getFamilyName());
             pointsText.setText(""+filteredDriver.getPoints());
@@ -86,37 +97,61 @@ public class FilteredDriversAdapter extends RecyclerView.Adapter<FilteredDrivers
 
         }
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.points_list_item, parent, false);
         return new ViewHolder(view);
     }
-
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         Driver model = filteredDriverList.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(model.getPicture())
                 .into(holder.dirver_image_view);
-
-        Driver filteredDriver = filteredDriverList.get(position);
-        holder.bind(filteredDriver);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Driver");
         DatabaseReference myRefTeam = database.getReference("Team");
+        Driver filteredDriver = filteredDriverList.get(position);
+
+        holder.bind(filteredDriver);
+
         holder.trigger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
+            public void onClick(View v) {
+                String pointsString = holder.points.getText().toString();
+                if (pointsString.isEmpty()) {
+                    Toast.makeText(context, "Points field is empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                int points;
+                try {
+                    points = Integer.parseInt(pointsString);  //uneseni bodovi
+                } catch (NumberFormatException e) {
+                    Toast.makeText(context, "Invalid input, only numbers are allowed", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(points == 0 ){
+                    Toast.makeText(context, "Points can't be 0", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (points > 30) {
+                    Toast.makeText(context, "Points can't be greater than 30", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 int position = holder.getAdapterPosition();
                 if (position != RecyclerView.NO_POSITION) {
                     Driver filteredDriver = filteredDriverList.get(position);
+
+                    // Do something with the points
+
+                    Toast.makeText(context, "You Choose: " + filteredDriverList.get(position).getPoints()+ "po"+points, Toast.LENGTH_SHORT).show();
                     int newPoints = Integer.parseInt(holder.points.getText().toString());
                     filteredDriver.setPoints(filteredDriver.getPoints() + newPoints);
                     int updatedPoints = filteredDriver.getPoints();
-                    myRef.addValueEventListener(new ValueEventListener() {
+
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             int totalPoints = 0;
@@ -126,26 +161,7 @@ public class FilteredDriversAdapter extends RecyclerView.Adapter<FilteredDrivers
                                     totalPoints += driver.getPoints();
                                 }
                             }
-                            // Update the team's total points in the "Team" reference
-                            int finalTotalPoints = totalPoints;
-                            myRefTeam.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    for (DataSnapshot teamSnapshot : dataSnapshot.getChildren()) {
-                                        if (teamSnapshot.child("name").getValue(String.class).equals(filteredDriver.getConstructorId())) {
-                                            DatabaseReference teamRef = teamSnapshot.getRef();
-                                            teamRef.child("points").setValue(finalTotalPoints);
-                                            myRefTeam.removeEventListener(this);
-                                            break;
-                                        }
-                                    }
-                                    notifyDataSetChanged();
-                                }
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-                                    Log.e(TAG, "onCancelled: ", databaseError.toException());
-                                }
-                            });
+                            holder_points = String.valueOf(totalPoints);
                             // Update the driver's points in the "Driver" reference
                             for (DataSnapshot driverSnapshot : dataSnapshot.getChildren()) {
                                 Driver driver = driverSnapshot.getValue(Driver.class);
@@ -157,95 +173,45 @@ public class FilteredDriversAdapter extends RecyclerView.Adapter<FilteredDrivers
                             }
                         }
                         @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                        public void onCancelled
+                                (DatabaseError databaseError) {
                             Log.e(TAG, "onCancelled: ", databaseError.toException());
                         }
                     });
                 }
-            }
-        });
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        /*     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Driver filteredDriver = filteredDriverList.get(position);
-        holder.bind(filteredDriver);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference teamRef = database.getReference("Team");
-        DatabaseReference myRef = database.getReference("Driver");
-        holder.trigger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int position = holder.getAdapterPosition();
-                if (position != RecyclerView.NO_POSITION) {
-                    Driver filteredDriver = filteredDriverList.get(position);
-                    int newPoints = Integer.parseInt(holder.points.getText().toString());
-                    filteredDriver.setPoints(filteredDriver.getPoints() + newPoints);
-                    int x = filteredDriver.getPoints()+ newPoints;
-                    DatabaseReference driverRef = myRef.child(filteredDriver.getFamilyName());
-
-                    // Update the points for the driver
-                    myRef.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            filteredDriverList.clear();
-                            for (DataSnapshot driverSnapshot : dataSnapshot.getChildren()) {
-                                Driver driver = driverSnapshot.getValue(Driver.class);
-                                if (driver.getFamilyName().equals(filteredDriverList.get(position).getFamilyName())) {
-                                    DatabaseReference verstappenRef = driverSnapshot.getRef();
-                                    verstappenRef.child("points").setValue(x);
-                                    break;
-                                }
+                // Update the team's total points in the "Team" reference
+                int finalTotalPoints =  filteredDriverList.get(0).getPoints() + filteredDriverList.get(1).getPoints();
+                myRefTeam.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot teamSnapshot : dataSnapshot.getChildren()) {
+                            if (teamSnapshot.child("name").getValue(String.class).equals(filteredDriver.getConstructorId())) {
+                                DatabaseReference teamRef = teamSnapshot.getRef();
+                                teamRef.child("points").setValue(finalTotalPoints);
+                                break;
                             }
-                            notifyDataSetChanged();
                         }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            Log.e(TAG, "onCancelled: ", databaseError.toException());
-                        }
-                    });
-
-
-
-          driverRef.child(filteredDriver.getFamilyName()).setValue(filteredDriver);
-
-                    int teamPoints = 0;
-                    for (Driver driver : filteredDriverList) {
-                        if (driver.getConstructorId().equals(filteredDriver.getConstructorId())) {
-                            teamPoints += driver.getPoints();
-                        }
+                        notifyDataSetChanged();
                     }
-                    teamRef.child(filteredDriver.getConstructorId()).child("points").setValue(teamPoints);
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.e(TAG, "onCancelled: ", databaseError.toException());
+                    }
+                });
 
-                }
             }
         });
-
     }
-*/
+
+
+
+
+
+
+
     @Override
     public int getItemCount() {
         return filteredDriverList.size();
     }
-
-
 }
 

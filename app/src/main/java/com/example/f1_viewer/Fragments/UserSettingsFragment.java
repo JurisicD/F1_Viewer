@@ -56,21 +56,21 @@ public class UserSettingsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_user_settings, container, false);
     }
 
+    private void reloadData() {
+        getData();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        reloadData();
+    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
 
         mRecyclerView = view.findViewById(R.id.admin_reclycer);
-        getData();
-
-
-
-
-
-
-
-
-
+      //  getData();
 
 
         //User settings
@@ -125,6 +125,7 @@ public class UserSettingsFragment extends Fragment {
             myRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
+
                     for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                         int constructorId = childSnapshot.child("constructorId").getValue(Integer.class);
                         ArrayList<String> drivers = new ArrayList<>();
@@ -147,6 +148,7 @@ public class UserSettingsFragment extends Fragment {
                             return Double.compare(o2.getPoints(), o1.getPoints());
                         }
                     });
+
 
                     adapter = new AdapterPoints(getContext(), teamList, driverList);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
